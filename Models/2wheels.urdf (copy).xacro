@@ -1,0 +1,306 @@
+<?xml version='1.0'?>
+
+<robot name="dd_sim" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+    <material name="black">
+      <color rgba="0 0 0 1"/>
+    </material>
+    <material name="white">
+      <color rgba="1 1 1 1"/>
+    </material>
+    <link name='link_0'>
+	<origin xyz = "0 0 0.545" rpy = "0 0 0"/>
+
+    <inertial>
+      <mass value="10.0"/>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
+      <inertia
+          ixx="0.166667" ixy="0" ixz="0"
+          iyy="0.166667" iyz="0"
+          izz="0.166667"
+      />
+    </inertial>
+
+    <collision name='collision'>
+      <origin xyz = "0 0 0.395" rpy = "0 0 0"/>
+      <geometry>
+        <box size="0.5 0.5 0.7"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000</mu>
+	    <mu2>1000</mu2>
+	    <fdir1>0 0 0</fdir1>
+            <slip1>0</slip1>
+            <slip2>0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <visual name='link_0__visual'>
+      <origin xyz="0 0 0.395" rpy=" 0 0 0"/>
+      <geometry>
+        <box size="0.5 0.5 0.7"/>
+      </geometry>
+      <material name = "white"/>	
+    </visual>
+    <visual name='link_0_caster__visual'>
+      <origin xyz="0.105 0 0.045" rpy=" 0 0 0"/>
+      <geometry>
+        <sphere radius = "0.045"/>
+      </geometry>
+      <material name = "white"/>
+    </visual>
+    <collision name = "collision_caster">
+      <origin xyz = "0.145 0 0.0225" rpy = "0 0 0"/>
+      <geometry>
+        <sphere radius = "0.0225"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.001</mu>
+            <mu2>0.001</mu2>
+            <fdir1>0 0 0</fdir1>
+            <slip1>0</slip1>
+            <slip2>0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <visual name='link_0__visual'>
+      <origin xyz="0 0 0.395" rpy=" 0 0 0"/>
+      <geometry>
+        <box size="0.5 0.5 0.7"/>
+      </geometry>
+      <material name = "white"/>	
+    </visual>
+    <visual name='link_0_caster__visual'>
+      <origin xyz="-0.105 0 0.045" rpy=" 0 0 0"/>
+      <geometry>
+        <sphere radius = "0.045"/>
+      </geometry>
+      <material name = "white"/>
+    </visual>
+    <collision name = "collision_caster">
+      <origin xyz = "0.145 0 0.0225" rpy = "0 0 0"/>
+      <geometry>
+        <sphere radius = "0.0225"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.001</mu>
+            <mu2>0.001</mu2>
+            <fdir1>0 0 0</fdir1>
+            <slip1>0</slip1>
+            <slip2>0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+
+  <link name="link_1">
+    <collision name="collision">
+	    <!--origin xyz = "-0.12 -0.1625 0.045" rpy = "1.5708 -0 0"-->
+      <geometry>
+        <cylinder radius="0.1" length="0.025"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000</mu>
+            <mu2>1000</mu2>
+            <fdir1>0 0 0</fdir1>
+            <slip1>0</slip1>
+            <slip2>0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <visual name="link_1_visual">
+	    <!--origin xyz = "-0.12 -0.1625 0.045" rpy = "1.5708 -0 0"-->
+      <geometry>
+        <cylinder radius="0.1" length="0.025"/>
+      </geometry>
+      <material name = "blue"/>
+    </visual>
+    <inertial>
+      <!--origin xyz="0 0 0" rpy="0 -0 0"-->
+      <mass value="1"/>
+      <inertia
+        ixx="0.145833" ixy="0.0" ixz="0.0"
+        iyy="0.145833" iyz="0.0"
+        izz="0.125"/>
+    </inertial>
+  </link>
+
+  <link name="link_2">
+    <collision name="collision">
+	    <!--origin xyz = "-0.12 0.1625 0.045" rpy = "1.5708 -0 0"-->
+      <geometry>
+        <cylinder radius="0.1" length="0.025"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000</mu>
+            <mu2>1000</mu2>
+            <fdir1>0 0 0</fdir1>
+            <slip1>0</slip1>
+            <slip2>0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <visual name="link_2_visual">
+	    <!--origin xyz = "-0.12 0.1625 0.045" rpy = "1.5708 -0 0"-->
+      <geometry>
+        <cylinder radius="0.1" length="0.025"/>
+      </geometry>
+	<material name = "blue"/>
+    </visual>
+    <inertial>
+      <!--origin xyz="0 0 0" rpy="0 -0 0"-->
+      <mass value="1"/>
+      <inertia
+        ixx="0.145833" ixy="0.0" ixz="0.0"
+        iyy="0.145833" iyz="0.0"
+        izz="0.125"/>
+    </inertial>
+  </link>
+  <link name="camera">
+    <collision>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <inertial>
+      <mass value= "0.5" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint type="continuous" name="link_0_JOINT_0">
+    <parent link = "link_0"/>
+    <child link="link_1"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10000" velocity="1000" lower ="-1.79769e+308" upper="1.79769e+308"/>
+    <joint_properties damping="1.0" friction="1.0"/>
+	    <!--origin xyz = "0 0 0" rpy = "0 0 0"-->
+    <origin xyz = "-0.1 -0.3125 0.1" rpy = "1.5708 -0 0"/>
+  </joint>
+
+  <joint type="continuous" name="link_0_JOINT_1">
+    <child link="link_2"/>
+    <parent link="link_0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10000" velocity="1000" lower ="-1.79769e+308" upper="1.79769e+308"/>
+    <joint_properties damping="1.0" friction="1.0"/>
+	    <!--origin xyz = "0 0 0" rpy = "0 0 0"-->
+    <origin xyz = "-0.1 0.3125 0.1" rpy = "1.5708 -0 0"/>
+  </joint>
+
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0.262 0 0.625" rpy="0 0 0"/>
+    <parent link="link_0"/>
+    <child link="camera"/>
+  </joint>
+
+  <gazebo>
+	  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+        <!-- Plugin update rate in Hz -->
+        <updateRate>100</updateRate>
+
+        <!-- Name of left joint, defaults to `left_joint` -->
+        <leftJoint>link_0_JOINT_0</leftJoint>
+
+        <!-- Name of right joint, defaults to `right_joint` -->
+        <rightJoint>link_0_JOINT_1</rightJoint>
+
+        <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+        <wheelSeparation>0.525</wheelSeparation>
+
+        <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+        <wheelDiameter>0.06</wheelDiameter>
+
+        <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+        <wheelAcceleration>1.0</wheelAcceleration>
+
+        <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+        <wheelTorque>5</wheelTorque>
+
+        <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+        <commandTopic>cmd_vel</commandTopic>
+
+        <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+        <odometryTopic>odom</odometryTopic>
+
+        <!-- Odometry frame, defaults to `odom` -->
+        <odometryFrame>odom</odometryFrame>
+
+        <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+        <robotBaseFrame>link_0</robotBaseFrame>
+
+        <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+        <odometrySource>1</odometrySource>
+
+        <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+        <publishWheelTF>true</publishWheelTF>
+
+        <!-- Set to true to publish transforms for the odometry, defaults to true -->
+        <publishOdom>true</publishOdom>
+       <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+        <publishWheelJointState>true</publishWheelJointState>
+
+        <!-- Set to true to swap right and left wheels, defaults to true -->
+	<legacyMode>false</legacyMode>
+	</plugin>
+    </gazebo>
+    <gazebo reference="camera">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>mybot/camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+</robot>
